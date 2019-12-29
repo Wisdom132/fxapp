@@ -34,27 +34,15 @@ export class AuthService {
   }
 
   getCategories() {
-    return this.http.get(`${this.rootURL}/api/category`, {
-      headers: new HttpHeaders({
-        Authorization: localStorage.getItem("access_token")
-      })
-    });
+    return this.http.get(`${this.rootURL}/api/category`);
   }
 
   getBlogByCategory(id) {
-    return this.http.get(`${this.rootURL}/api/blog/category/${id}`, {
-      headers: new HttpHeaders({
-        Authorization: localStorage.getItem("access_token")
-      })
-    });
+    return this.http.get(`${this.rootURL}/api/blog/category/${id}`);
   }
 
   getBlogPostDetails(id) {
-    return this.http.get(`${this.rootURL}/api/blog/${id}`, {
-      headers: new HttpHeaders({
-        Authorization: localStorage.getItem("access_token")
-      })
-    });
+    return this.http.get(`${this.rootURL}/api/blog/${id}`);
   }
 
   getRecentBlogPost() {

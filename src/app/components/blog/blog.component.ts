@@ -9,7 +9,6 @@ import * as moment from "moment";
   styleUrls: ["./blog.component.css"]
 })
 export class BlogComponent implements OnInit {
-  // dateCreated: string = moment().format("D MMM YYYY");
   blogPosts: any;
   postDetails: any;
   viewPost: boolean = false;

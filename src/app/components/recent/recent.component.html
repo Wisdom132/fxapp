@@ -18,8 +18,7 @@
             <h5 class="card-title">{{ post.title }}</h5>
             <div class="badge badge-primary p-1">{{ post.category.title }}</div>
             <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+              {{ post.content | slice: 0:150 }}
             </p>
           </div>
         </div>

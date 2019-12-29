@@ -1,0 +1,43 @@
+.hori {
+  width: 60px;
+  height: 2px !important;
+  background-color: #14233b
+}
+
+#over {
+
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+/* #over:hover {
+  box-shadow: 0 0 11px rgba(33, 33, 33, .2);
+} */
+
+.centered {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.defImg {
+  transition: box-shadow .3s;
+  cursor: pointer;
+
+}
+
+.defImg:hover {
+  box-shadow: 0 0 11px rgba(33, 33, 33, .9);
+}
+
+.centeredPara {
+  cursor: pointer;
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

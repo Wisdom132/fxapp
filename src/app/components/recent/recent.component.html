@@ -1,0 +1,29 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center mb-5 mt-5">
+        <h3>Most Recent Posts</h3>
+        <hr class="hori" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 mb-3" *ngFor="let post of recent">
+        <div
+          class="card"
+          [routerLink]="['/blog', post.category._id]"
+          style="width:auto;"
+        >
+          <img [src]="post.featured_image[0]" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">{{ post.title }}</h5>
+            <div class="badge badge-primary p-1">{{ post.category.title }}</div>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

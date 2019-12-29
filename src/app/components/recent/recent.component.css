@@ -1,0 +1,19 @@
+.card-img-top {
+  height: 180px;
+}
+
+.hori {
+  width: 60px;
+  height: 2px !important;
+  background-color: #14233b
+}
+
+.card {
+  transition: box-shadow .3s;
+  cursor: pointer;
+
+}
+
+.card:hover {
+  box-shadow: 0 0 11px rgba(33, 33, 33, .4);
+}

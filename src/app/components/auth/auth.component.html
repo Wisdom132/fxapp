@@ -1,0 +1,122 @@
+<div id="body">
+  <div class="container" id="container">
+    <div class="form-container sign-up-container">
+      <form autocomplete="off" (submit)="registerUser($event)">
+        <h4>Create Account</h4>
+        <div class="social-container">
+          <a href="#" class="social"
+            ><i class="mdi mdi-facebook-messenger"></i
+          ></a>
+          <a href="#" class="social"><i class="mdi mdi-twitter"></i></a>
+          <a href="#" class="social"><i class="mdi mdi-instagram"></i></a>
+        </div>
+        <span>or use your email for registration</span>
+        <div class="mb-3">
+          <label for="email">
+            Email
+          </label>
+
+          <input
+            autocomplete="off"
+            class="form-control"
+            id="createemail"
+            type="email"
+            placeholder="mail@mail.com"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="username">
+            Username
+          </label>
+          <input
+            autocomplete="off"
+            class="form-control"
+            id="createusername"
+            type="text"
+            placeholder="Username"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="password">
+            Password
+          </label>
+          <input
+            autocomplete="off"
+            class="form-control"
+            id="createpassword"
+            type="password"
+            placeholder="*********"
+          />
+        </div>
+        <button class="btn btn-primary" type="submit">
+          Sign In
+        </button>
+      </form>
+    </div>
+    <!-- login  -->
+    <div class="form-container sign-in-container">
+      <form autocomplete="off" (submit)="loginUser($event)">
+        <h4>Sign in</h4>
+        <div class="social-container">
+          <a href="#" class="social"
+            ><i class="mdi mdi-facebook-messenger"></i
+          ></a>
+          <a href="#" class="social"><i class="mdi mdi-twitter"></i></a>
+          <a href="#" class="social"><i class="mdi mdi-instagram"></i></a>
+        </div>
+        <span>or use your account</span>
+        <div class="mb-4">
+          <label for="username">
+            Username
+          </label>
+          <input
+            type="text"
+            id="username"
+            class="form-control"
+            placeholder="JohnDoe33"
+            required
+          />
+        </div>
+        <div class="mb-4">
+          <label for="password">
+            Password
+          </label>
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            placeholder="*******"
+            autocomplete="off"
+            required
+          />
+        </div>
+
+        <button class="btn btn-primary" type="submit">
+          Sign In
+        </button>
+      </form>
+    </div>
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h4>Welcome Back!</h4>
+          <p>
+            To keep connected with us please login with your personal info
+          </p>
+          <button class="btn btn-primary" id="signIn" type="button">
+            Sign In
+          </button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h4>Hello, Friend!</h4>
+          <p>Enter your personal details and start journey with us</p>
+          <button class="btn btn-primary" type="button" id="signUp">
+            Sign Up
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

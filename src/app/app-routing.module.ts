@@ -19,14 +19,14 @@ const routes: Routes = [
     path: "",
     component: SiteLayoutComponent,
     children: [
-      { path: "", component: HomeComponent } //canActivate: [AuthGuard]
+      { path: "", component: HomeComponent } //canActivate: [AuthGuard] //add authentication
     ]
   },
   {
     path: "",
     component: SiteLayoutComponent,
     children: [
-      { path: "blog/:id", component: BlogComponent, canActivate: [AuthGuard] } // route for blogpost
+      { path: "blog/:id", component: BlogComponent, canActivate: [AuthGuard] } // routes for blogpost
     ]
   }
 ];

@@ -19,16 +19,17 @@ const routes: Routes = [
     path: "",
     component: SiteLayoutComponent,
     children: [
-      { path: "", component: HomeComponent } //canActivate: [AuthGuard] //add authentication
-    ]
-  },
-  {
-    path: "",
-    component: SiteLayoutComponent,
-    children: [
-      { path: "blog/:id", component: BlogComponent, canActivate: [AuthGuard] } // routes for blogpost
+      { path: "", component: HomeComponent },
+      { path: "blog/:id", component: BlogComponent } //canActivate: [AuthGuard] //add authentication
     ]
   }
+  // {
+  //   path: "",
+  //   component: SiteLayoutComponent,
+  //   children: [
+  //     { path: "blog/:id", component: BlogComponent, canActivate: [AuthGuard] } // routes for blogpost
+  //   ]
+  // }
 ];
 
 @NgModule({

@@ -13,7 +13,7 @@ const routes: Routes = [
   // {
   //   path: "",
   //   component: BlankLayoutComponent,
-  //   children: [{ path: "", component: AuthComponent, pathMatch: "full" }]
+  //   children: [{ path: "", component: AuthComponent, pathMatch: "full" }] // route for login
   // },
   {
     path: "",

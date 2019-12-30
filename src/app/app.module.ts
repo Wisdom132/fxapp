@@ -17,6 +17,7 @@ import { AuthGuard } from "./guard/auth.guard";
 import { AuthService } from "./services/auth/auth.service";
 import { BlogComponent } from './components/blog/blog.component';
 import { RecentComponent } from './components/recent/recent.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { RecentComponent } from './components/recent/recent.component';
     HomeComponent,
     CategoryComponent,
     BlogComponent,
-    RecentComponent
+    RecentComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

@@ -1,21 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
-
-* {
-  font-family: 'Quicksand',
-    sans-serif !important;
-
-
-}
-
-body {
-  background-color: #edf2f7 !important;
-}
-
 .loader {
   color: #5e72e4;
   font-size: 10px;
-  margin: 300px auto;
+  margin: 20px auto;
   width: 0.8rem;
   height: 0.8rem;
   border-radius: 50%;

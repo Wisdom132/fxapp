@@ -16,4 +16,8 @@ export class RecentComponent implements OnInit {
       console.log(this.recent);
     });
   }
+  listener(id) {
+    this.recent = id.data;
+    // this.recent = JSON.stringify(id.data);
+  }
 }

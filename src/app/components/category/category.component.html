@@ -8,12 +8,15 @@
     </div>
     <div class="row">
       <div class="col-md-3 mb-3" id="over" *ngFor="let category of categories">
-        <img
-          src="../../../assets/img/fx1.jpg"
-          class="img-fluid defImg"
-          alt=""
-          [routerLink]="['/blog', category._id]"
-        />
+        <a href="#posts">
+          <img
+            src="../../../assets/img/fx1.jpg"
+            class="img-fluid defImg"
+            alt=""
+            (click)="getPosts(category._id)"
+          />
+        </a>
+
         <div class="centered">
           <h6 class="category_name">{{ category.title }}</h6>
         </div>
@@ -21,15 +24,6 @@
           <p class="category_descrription">{{ category.description }}</p>
         </div>
       </div>
-      <!-- <div class="col-md-3 mb-3">
-        <img src="../../../assets/img/fx2.jpg" class="img-fluid" alt="" />
-      </div>
-      <div class="col-md-3 mb-3">
-        <img src="../../../assets/img/fx3.jpg" class="img-fluid" alt="" />
-      </div>
-      <div class="col-md-3 mb-3">
-        <img src="../../../assets/img/fx4.jpg" class="img-fluid" alt="" />
-      </div> -->
     </div>
   </div>
 </section>

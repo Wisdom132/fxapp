@@ -8,6 +8,7 @@ import { AuthService } from "src/app/services/auth/auth.service";
 })
 export class RecentComponent implements OnInit {
   recent: any;
+  recentHeader: string = "Most Recent Posts";
   constructor(private Auth: AuthService) {}
 
   ngOnInit() {
@@ -18,6 +19,8 @@ export class RecentComponent implements OnInit {
   }
   listener(id) {
     this.recent = id.data;
+
+    this.recentHeader = this.recent[0].category.title;
     // this.recent = JSON.stringify(id.data);
   }
 }

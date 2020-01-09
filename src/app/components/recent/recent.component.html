@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center mb-5 mt-5">
-        <h3>Most Recent Posts</h3>
+        <h3>{{ recentHeader }}</h3>
         <hr class="hori" />
       </div>
     </div>
@@ -17,13 +17,13 @@
           [routerLink]="['/blog', post.category._id]"
           style="width:auto;"
         >
-          <img [src]="post.featured_image[0]" class="card-img-top" alt="..." />
           <div class="card-body">
-            <h5 class="card-title">{{ post.title }}</h5>
+            <h5 class="card-title">{{ post.title | titlecase }}</h5>
             <div class="badge badge-primary p-1">{{ post.category.title }}</div>
-            <p class="card-text">
-              {{ post.content | slice: 0:130 }}
-            </p>
+            <p
+              class="card-text pt-3 pb-3"
+              [innerHTML]="post.content | slice: 0:110"
+            ></p>
           </div>
         </div>
       </div>

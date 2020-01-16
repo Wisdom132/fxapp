@@ -1,4 +1,4 @@
-<section class="mt-5 mb-5" id="category">
+<!-- <section class="mt-5 mb-5" id="category">
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center mb-5">
@@ -10,7 +10,7 @@
       <div class="col-md-3 mb-3" id="over" *ngFor="let category of categories">
         <a href="#posts">
           <img
-            src="../../../assets/img/fx1.jpg"
+            [src]="this.basePath + image"
             class="img-fluid defImg"
             alt=""
             (click)="getPosts(category._id)"
@@ -26,4 +26,4 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->

@@ -15,9 +15,19 @@
 }
 
 .card:hover {
+  cursor: pointer;
   box-shadow: 0 0 11px rgba(33, 33, 33, .4) !important;
 }
 
 .card-title {
   font-weight: 700 !important;
+}
+
+.category {
+  text-transform: capitalize !important;
+  font-size: 700 !important;
+}
+
+.category:hover {
+  cursor: pointer !important;
 }

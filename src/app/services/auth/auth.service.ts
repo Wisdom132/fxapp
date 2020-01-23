@@ -1,51 +1,54 @@
-import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 interface myData {
-  success: boolean;
-  message: string;
+	success: boolean;
+	message: string;
 }
 
 @Injectable({
-  providedIn: "root"
+	providedIn: 'root'
 })
 export class AuthService {
-  readonly rootURL: string = "https://manny-fxapp.herokuapp.com";
+	readonly rootURL: string = 'https://manny-fxapp.herokuapp.com';
 
-  constructor(private http: HttpClient) {}
+	constructor(private http: HttpClient) {}
 
-  userSignin(username, password) {
-    return this.http.post<myData>(`${this.rootURL}/api/users/login`, {
-      username,
-      password
-    });
-  }
+	userSignin(username, password) {
+		return this.http.post<myData>(`${this.rootURL}/api/users/login`, {
+			username,
+			password
+		});
+	}
 
-  registerNewUser(email, username, password) {
-    return this.http.post(
-      `${this.rootURL}/api/users/register`,
-      {
-        email,
-        username,
-        password
-      },
-      { responseType: "text" as "json" }
-    );
-  }
+	registerNewUser(email, username, password) {
+		return this.http.post(
+			`${this.rootURL}/api/users/register`,
+			{
+				email,
+				username,
+				password
+			},
+			{ responseType: 'text' as 'json' }
+		);
+	}
 
-  getCategories() {
-    return this.http.get(`${this.rootURL}/api/category`);
-  }
+	getCategories() {
+		return this.http.get(`${this.rootURL}/api/category`);
+	}
 
-  getBlogByCategory(id) {
-    return this.http.get(`${this.rootURL}/api/blog/category/${id}`);
-  }
+	getBlogByCategory(id) {
+		return this.http.get(`${this.rootURL}/api/blog/category/${id}`);
+	}
 
-  getBlogPostDetails(id) {
-    return this.http.get(`${this.rootURL}/api/blog/${id}`);
-  }
+	getBlogPostDetails(id) {
+		return this.http.get(`${this.rootURL}/api/blog/${id}`);
+	}
 
-  getRecentBlogPost() {
-    return this.http.get(`${this.rootURL}/api/blog`);
-  }
+	getRecentBlogPost() {
+		return this.http.get(`${this.rootURL}/api/blog/get-category-blog`);
+	}
+	// getRecentBlogPost() {
+	//   return this.http.get(`${this.rootURL}/api/blog`);
+	// }
 }

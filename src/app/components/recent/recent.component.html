@@ -1,28 +1,32 @@
 <!-- <app-category (categoryPosts)="listener($event)"></app-category> -->
-<section id="posts">
+<section class="mt-5" id="posts">
   <div class="container">
-    <div class="row">
-      <div class="col-md-12 text-center mb-5 mt-5">
-        <h3>{{ recentHeader }}</h3>
-        <hr class="hori" />
+    <div class="row mb-5 mt-5" *ngFor="let post of recent">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12" *ngFor="let title of post._id">
+            <h3 [id]="title.title" class="category mb-3">
+              <span [routerLink]="['/blog', title._id]">{{ title.title }}</span>
+            </h3>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div
-        class="col-md-6 col-sm-12 col-lg-4 col-xl-3 mb-3"
-        *ngFor="let post of recent"
-      >
+
+      <div class="col-md-3 mb-3" *ngFor="let data of post.posts">
         <div
+          *ngFor="let category of data.category"
           class="card shadow"
-          [routerLink]="['/blog', post.category._id]"
+          [routerLink]="['/blog', category._id]"
           style="width:auto;"
         >
           <div class="card-body">
-            <h5 class="card-title">{{ post.title | titlecase }}</h5>
-            <div class="badge badge-primary p-1">{{ post.category.title }}</div>
+            <h5 class="card-title">{{ data.title | titlecase }}</h5>
+            <div *ngFor="let category of data.category">
+              <div class="badge badge-primary p-1">{{ category.title }}</div>
+            </div>
             <p
               class="card-text pt-3 pb-3"
-              [innerHTML]="post.content | slice: 0:110"
+              [innerHTML]="data.content | slice: 0:110"
             ></p>
           </div>
         </div>

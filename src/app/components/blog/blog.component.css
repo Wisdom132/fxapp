@@ -138,9 +138,9 @@ ul.CTAs a {
     margin-left: 0;
   }
 
-  #sidebarCollapse span {
+  /* #sidebarCollapse span {
     display: none;
-  }
+  } */
 }
 
 .responsive {

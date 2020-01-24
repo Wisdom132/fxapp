@@ -1,7 +1,7 @@
 #hero {
   background: linear-gradient(rgba(0, 0, 34, 0.55), rgba(0, 0, 34, 0.55)),
     url("../../../assets/img/newheader.jpg");
-  height: 630px;
+  /* height: 630px; */
   background-size: cover;
   background-position: center center;
 }

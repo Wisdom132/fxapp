@@ -28,19 +28,8 @@
             class="btn text-light"
             style="background-color: #14233b;"
           >
-            <i class="fas fa-align-left"></i>
-            <span>Toggle Sidebar</span>
-          </button>
-          <button
-            class="btn btn-dark d-inline-block d-lg-none ml-auto"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <i class="fas fa-align-justify"></i>
+            <!-- <i class="fas fa-align-left"></i> -->
+            <i class="mdi mdi-reorder-horizontal"></i>
           </button>
         </div>
       </nav>
@@ -51,9 +40,7 @@
           alt=""
         />
         <h3>{{ postDetails.title }}</h3>
-        <small
-          >{{ postDetails.dateCreated | date }}</small
-        >
+        <small>{{ postDetails.dateCreated | date }}</small>
         <p [innerHTML]="postDetails.content" class="para"></p>
       </div>
     </div>

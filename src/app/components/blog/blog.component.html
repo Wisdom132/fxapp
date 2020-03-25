@@ -1,48 +1,57 @@
 <body>
-  <div class="wrapper">
-    <!-- Sidebar  -->
-    <nav id="sidebar">
-      <div class="sidebar-header mt-4">
-        <!-- <h4>{{ title.category.title }}</h4> -->
-      </div>
-
-      <ul
-        class="list-unstyled components"
-        *ngFor="let title of blogPosts; let num = index"
-      >
-        <li>
-          <a (click)="getBlogPostDetails(title)"
-            >{{ num + 1 }}. {{ title.title }}</a
-          >
-        </li>
-      </ul>
-    </nav>
-
-    <!-- Page Content  -->
-    <div id="content">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <button
-            type="button"
-            id="sidebarCollapse"
-            class="btn text-light"
-            style="background-color: #14233b;"
-          >
-            <!-- <i class="fas fa-align-left"></i> -->
-            <i class="mdi mdi-reorder-horizontal"></i>
-          </button>
+  <section>
+    <div class="wrapper">
+      <!-- Sidebar  -->
+      <nav id="sidebar">
+        <div class="sidebar-header mt-4">
+          <!-- <h4>{{ title.category.title }}</h4> -->
         </div>
+
+        <ul
+          class="list-unstyled components"
+          *ngFor="let title of blogPosts; let num = index"
+        >
+          <li>
+            <a (click)="getBlogPostDetails(title)"
+              >{{ num + 1 }}. {{ title.title }}</a
+            >
+          </li>
+        </ul>
       </nav>
-      <div *ngIf="viewPost" class="card p-4">
-        <img
-          [src]="postDetails.featured_image[0]"
-          class="responsive mb-4"
-          alt=""
-        />
-        <h3>{{ postDetails.title }}</h3>
-        <small>{{ postDetails.dateCreated | date }}</small>
-        <p [innerHTML]="postDetails.content" class="para"></p>
+
+      <!-- Page Content  -->
+      <div id="content">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+            <button
+              type="button"
+              id="sidebarCollapse"
+              class="btn text-light"
+              style="background-color: #14233b;"
+            >
+              <!-- <i class="fas fa-align-left"></i> -->
+              <i class="mdi mdi-reorder-horizontal"></i>
+            </button>
+          </div>
+        </nav>
+
+        <div class="text-center" *ngIf="loading; else showdata">
+          <app-loader></app-loader>
+        </div>
+
+        <ng-template #showdata>
+          <div *ngIf="viewPost" class="card p-4">
+            <img
+              [src]="postDetails.featured_image[0]"
+              class="responsive mb-4"
+              alt=""
+            />
+            <h3>{{ postDetails.title }}</h3>
+            <small>{{ postDetails.dateCreated | date }}</small>
+            <p [innerHTML]="postDetails.content" class="para"></p>
+          </div>
+        </ng-template>
       </div>
     </div>
-  </div>
+  </section>
 </body>

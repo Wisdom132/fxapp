@@ -10,14 +10,15 @@ import { LoaderService } from 'src/app/services/loader/loader.service';
 export class RecentComponent implements OnInit {
 	recent: any;
 	recentHeader: string = 'Introduction to Forex trading';
+	loading: boolean = false;
 	constructor(private Auth: AuthService, private Loader: LoaderService) {}
 
 	ngOnInit() {
-		// this.Loader.display(true);
+		this.loading = true;
 		this.Auth.getRecentBlogPost().subscribe((data: any) => {
 			this.recent = data.data.splice(0, 4);
+			this.loading = false;
 			console.log(this.recent);
-			// this.Loader.display(false);
 		});
 	}
 	listener(id) {

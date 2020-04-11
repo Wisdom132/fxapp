@@ -37,6 +37,7 @@ export class AuthService {
 	}
 
 	resendConfirmation(email) {
-		return this.http.post(`${this.rootURL}/api/users/resend`, email);
+		console.log(email);
+		return this.http.post(`${this.rootURL}/api/users/resend`, { email: email });
 	}
 }

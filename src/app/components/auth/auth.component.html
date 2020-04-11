@@ -3,55 +3,32 @@
     <div class="form-container sign-up-container">
       <form autocomplete="off" (submit)="registerUser($event)">
         <h4>Create Account</h4>
-        <div class="social-container">
-          <a href="#" class="social"
-            ><i class="mdi mdi-facebook-messenger"></i
-          ></a>
-          <a href="#" class="social"><i class="mdi mdi-twitter"></i></a>
-          <a href="#" class="social"><i class="mdi mdi-instagram"></i></a>
-        </div>
-        <span>or use your email for registration</span>
         <div class="mb-3">
-          <label for="email">
-            Email
-          </label>
 
-          <input
-            autocomplete="off"
-            class="form-control"
-            id="createemail"
-            type="email"
-            placeholder="mail@mail.com"
-            required
-          />
+
+          <input autocomplete="off" class="form-control" id="createname" type="text" placeholder="Name" required />
         </div>
         <div class="mb-3">
-          <label for="username">
-            Username
-          </label>
-          <input
-            autocomplete="off"
-            class="form-control"
-            id="createusername"
-            type="text"
-            placeholder="Username"
-            required
-          />
+
+          <input autocomplete="off" class="form-control" id="createemail" type="email" placeholder="Email" required />
         </div>
         <div class="mb-3">
-          <label for="password">
-            Password
-          </label>
-          <input
-            autocomplete="off"
-            class="form-control"
-            id="createpassword"
-            type="password"
-            placeholder="*********"
-          />
+
+          <input autocomplete="off" class="form-control" id="createusername" type="text" placeholder="Username"
+            required />
         </div>
+        <div class="mb-3">
+
+          <input autocomplete="off" class="form-control" id="createphone" type="text" placeholder="Phone" required />
+        </div>
+        <div class="mb-3">
+
+          <input autocomplete="off" class="form-control" id="createpassword" type="password" placeholder="Password" />
+        </div>
+        <p>Didnt get a mail? Click <a href="#" routerLink="/auth/resend-confirmation">here</a> </p>
         <button class="btn btn-primary" type="submit">
-          Sign In
+          <span *ngIf="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          Sign Up
         </button>
       </form>
     </div>
@@ -59,44 +36,30 @@
     <div class="form-container sign-in-container">
       <form autocomplete="off" (submit)="loginUser($event)">
         <h4>Sign in</h4>
-        <div class="social-container">
-          <a href="#" class="social"
-            ><i class="mdi mdi-facebook-messenger"></i
-          ></a>
-          <a href="#" class="social"><i class="mdi mdi-twitter"></i></a>
-          <a href="#" class="social"><i class="mdi mdi-instagram"></i></a>
-        </div>
-        <span>or use your account</span>
+
         <div class="mb-4">
           <label for="username">
             Username
           </label>
-          <input
-            type="text"
-            id="username"
-            class="form-control"
-            placeholder="JohnDoe33"
-            required
-          />
+          <input type="text" id="username" class="form-control" placeholder="JohnDoe33" required />
         </div>
-        <div class="mb-4">
-          <label for="password">
+        <div class="mb-3">
+          <label for="password ">
             Password
           </label>
-          <input
-            type="password"
-            id="password"
-            class="form-control"
-            placeholder="*******"
-            autocomplete="off"
-            required
-          />
+          <input type="password" id="password" class="form-control" placeholder="*******" autocomplete="off" required />
+        </div>
+        <div class="text-right text-primary">
+          <a href="#" routerLink='/auth/forgot-password'>Forgot Password?</a>
         </div>
 
         <button class="btn btn-primary" type="submit">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
           Sign In
         </button>
+
       </form>
+
     </div>
     <div class="overlay-container">
       <div class="overlay">

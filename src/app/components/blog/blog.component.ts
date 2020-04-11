@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth/auth.service';
+import { BlogService } from 'src/app/services/blog/blog.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { LoaderService } from 'src/app/services/loader/loader.service';
 @Component({
@@ -13,7 +13,7 @@ export class BlogComponent implements OnInit {
 	viewPost: boolean = false;
 	loading: boolean = false;
 	constructor(
-		private Auth: AuthService,
+		private Blog: BlogService,
 		private route: ActivatedRoute,
 		private router: Router,
 		private Loader: LoaderService
@@ -27,7 +27,7 @@ export class BlogComponent implements OnInit {
 		});
 		let id = this.route.snapshot.paramMap.get('id');
 		this.loading = true;
-		this.Auth.getBlogByCategory(id).subscribe((data: any) => {
+		this.Blog.getBlogByCategory(id).subscribe((data: any) => {
 			this.loading = false;
 			this.blogPosts = data.data.reverse();
 			this.getBlogPostDetails(this.blogPosts[0]);

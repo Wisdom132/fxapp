@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 interface myData {
 	success: boolean;
@@ -10,7 +10,8 @@ interface myData {
 	providedIn: 'root'
 })
 export class AuthService {
-	readonly rootURL: string = 'https://manny-fxapp.herokuapp.com';
+	// readonly rootURL: string = 'https://manny-fxapp.herokuapp.com';
+	readonly rootURL: string = 'http://localhost:5000';
 
 	constructor(private http: HttpClient) {}
 
@@ -21,34 +22,21 @@ export class AuthService {
 		});
 	}
 
-	registerNewUser(email, username, password) {
+	registerNewUser(name, email, username, password, phone) {
 		return this.http.post(
 			`${this.rootURL}/api/users/register`,
 			{
+				name,
 				email,
 				username,
-				password
+				password,
+				phone
 			},
 			{ responseType: 'text' as 'json' }
 		);
 	}
 
-	getCategories() {
-		return this.http.get(`${this.rootURL}/api/category`);
+	resendConfirmation(email) {
+		return this.http.post(`${this.rootURL}/api/users/resend`, email);
 	}
-
-	getBlogByCategory(id) {
-		return this.http.get(`${this.rootURL}/api/blog/category/${id}`);
-	}
-
-	getBlogPostDetails(id) {
-		return this.http.get(`${this.rootURL}/api/blog/${id}`);
-	}
-
-	getRecentBlogPost() {
-		return this.http.get(`${this.rootURL}/api/blog/get-category-blog`);
-	}
-	// getRecentBlogPost() {
-	//   return this.http.get(`${this.rootURL}/api/blog`);
-	// }
 }

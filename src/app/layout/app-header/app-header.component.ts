@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth/auth.service';
+import { BlogService } from 'src/app/services/blog/blog.service';
 
 @Component({
 	selector: 'app-header',
@@ -9,10 +9,10 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class AppHeaderComponent implements OnInit {
 	categories: any;
-	constructor(private Category: AuthService, private router: Router) {}
+	constructor(private Blog: BlogService, private router: Router) {}
 
 	ngOnInit() {
-		this.Category.getCategories().subscribe((data: any) => {
+		this.Blog.getCategories().subscribe((data: any) => {
 			this.categories = data.data;
 			console.log(this.categories);
 		});

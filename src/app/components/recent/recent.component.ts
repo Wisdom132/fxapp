@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth/auth.service';
+import { BlogService } from 'src/app/services/blog/blog.service';
 import { LoaderService } from 'src/app/services/loader/loader.service';
 
 @Component({
@@ -11,11 +11,11 @@ export class RecentComponent implements OnInit {
 	recent: any;
 	recentHeader: string = 'Introduction to Forex trading';
 	loading: boolean = false;
-	constructor(private Auth: AuthService, private Loader: LoaderService) {}
+	constructor(private Blog: BlogService, private Loader: LoaderService) {}
 
 	ngOnInit() {
 		this.loading = true;
-		this.Auth.getRecentBlogPost().subscribe((data: any) => {
+		this.Blog.getRecentBlogPost().subscribe((data: any) => {
 			this.recent = data.data.splice(0, 4);
 			this.loading = false;
 			console.log(this.recent);

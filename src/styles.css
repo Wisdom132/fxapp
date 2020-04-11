@@ -14,6 +14,11 @@ body {
   background-color: #edf2f7 !important;
 }
 
+.ck-editor__editable_inline {
+  min-height: 400px !important;
+  width: 100% !important;
+}
+
 .loader {
   color: #14233b;
   font-size: 10px;

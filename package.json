@@ -19,6 +19,8 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
+    "@ckeditor/ckeditor5-angular": "^1.2.3",
+    "@ckeditor/ckeditor5-build-classic": "^18.0.0",
     "@sweetalert2/ngx-sweetalert2": "^7.1.0",
     "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",

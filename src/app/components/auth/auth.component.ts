@@ -45,7 +45,7 @@ export class AuthComponent implements OnInit {
 					confirmButtonText: 'Ok'
 				});
 				localStorage.setItem('access_token', data.token);
-				localStorage.setItem('user', data.user);
+				localStorage.setItem('user', JSON.stringify(data.user));
 				this.router.navigate([ '/list-draft' ]);
 				console.log(data);
 			},

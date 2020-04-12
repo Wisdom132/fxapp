@@ -5,7 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthComponent } from './components/auth/auth.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // form modules
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpConfigInterceptor } from '../../src/app/interceptor/httpconfig.interceptor';
 import { AppHeaderComponent } from './layout/app-header/app-header.component';
 import { AppFooterComponent } from './layout/app-footer/app-footer.component';
 import { SiteLayoutComponent } from './layout/site-layout/site-layout.component';
@@ -51,7 +52,15 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 		CKEditorModule,
 		SweetAlert2Module.forRoot()
 	],
-	providers: [ AuthGuard, AuthService ],
+	providers: [
+		AuthGuard,
+		AuthService,
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: HttpConfigInterceptor,
+			multi: true
+		}
+	],
 	bootstrap: [ AppComponent ]
 })
 export class AppModule {}

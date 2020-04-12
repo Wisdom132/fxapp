@@ -30,7 +30,7 @@ export class DraftpostComponent implements OnInit {
 
 	addDraft() {
 		this.loading = true;
-		this.Draft.draftPost(this.draftForm.value, this.fileToUpload, drafter);
+		this.Draft.draftPost(this.draftForm.value, this.fileToUpload, this.drafter);
 		console.log();
 	}
 	// getDrafter() {

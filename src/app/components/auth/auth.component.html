@@ -1,7 +1,7 @@
 <div id="body">
   <div class="container" id="container">
     <div class="form-container sign-up-container">
-      <form autocomplete="off" (submit)="registerUser($event)">
+      <form id="signup" autocomplete="off" (submit)="registerUser($event)">
         <h4>Create Account</h4>
         <div class="mb-3">
 
@@ -27,7 +27,7 @@
         </div>
         <p>Didnt get a mail? Click <a href="#" routerLink="/auth/resend-confirmation">here</a> </p>
         <button class="btn btn-primary" type="submit">
-          <span *ngIf="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          <span *ngIf="createLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
           Sign Up
         </button>
       </form>

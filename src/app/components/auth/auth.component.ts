@@ -12,7 +12,8 @@ import { error } from 'util';
 })
 export class AuthComponent implements OnInit {
 	constructor(private Auth: AuthService, private router: Router) {}
-	loading: boolean = false;
+	createLoading: Boolean = false;
+	loading: Boolean = false;
 	ngOnInit() {
 		const signUpButton = document.getElementById('signUp');
 		const signInButton = document.getElementById('signIn');
@@ -63,19 +64,21 @@ export class AuthComponent implements OnInit {
 
 	//register new user
 	registerUser(event) {
-		this.loading = false;
+		this.createLoading = true;
 		event.preventDefault();
 		const target = event.target;
 		let createEmail = target.querySelector('#createemail').value;
 		let username = target.querySelector('#createusername').value;
 		let name = target.querySelector('#createname').value;
+		let form = target.querySelector('#signup');
 
 		let phone = target.querySelector('#createphone').value;
 		let createpassword = target.querySelector('#createpassword').value;
 
 		this.Auth.registerNewUser(name, createEmail, username, createpassword, phone).subscribe(
 			(data: any) => {
-				this.loading = false;
+				this.createLoading = false;
+				form.reset();
 				Swal.fire({
 					title: 'Success',
 					text: data,
@@ -84,7 +87,7 @@ export class AuthComponent implements OnInit {
 				});
 			},
 			(err: HttpErrorResponse) => {
-				this.loading = false;
+				this.createLoading = false;
 				let code = JSON.parse(err.error);
 				if (code.msg) {
 					Swal.fire({

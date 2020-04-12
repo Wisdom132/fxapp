@@ -5,8 +5,8 @@ import { HttpClient } from '@angular/common/http';
 	providedIn: 'root'
 })
 export class DraftService {
-	// readonly rootURL: string = 'https://manny-fxapp.herokuapp.com';
-	readonly rootURL: string = 'http://localhost:5000';
+	readonly rootURL: string = 'https://manny-fxapp.herokuapp.com';
+	// readonly rootURL: string = 'http://localhost:5000';
 
 	getDraftersDraft(id) {
 		return this.http.get(`${this.rootURL}/api/draft/drafter/${id}`);

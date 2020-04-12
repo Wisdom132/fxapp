@@ -10,8 +10,8 @@ interface myData {
 	providedIn: 'root'
 })
 export class AuthService {
-	// readonly rootURL: string = 'https://manny-fxapp.herokuapp.com';
-	readonly rootURL: string = 'http://localhost:5000';
+	readonly rootURL: string = 'https://manny-fxapp.herokuapp.com';
+	// readonly rootURL: string = 'http://localhost:5000';
 
 	constructor(private http: HttpClient) {}
 

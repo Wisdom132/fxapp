@@ -51,12 +51,22 @@ export class AuthComponent implements OnInit {
 			},
 			(err: HttpErrorResponse) => {
 				this.loading = false;
-				Swal.fire({
-					title: 'Error!',
-					text: err.error.msg,
-					icon: 'error',
-					confirmButtonText: 'Ok'
-				});
+				if (err.error.msg) {
+					Swal.fire({
+						title: 'Error!',
+						text: err.error.msg,
+						icon: 'error',
+						confirmButtonText: 'Ok'
+					});
+				} else {
+					Swal.fire({
+						title: 'Error!',
+						text: 'Something Went Wrong',
+						icon: 'error',
+						confirmButtonText: 'Ok'
+					});
+				}
+
 				console.log(err.error);
 			}
 		);

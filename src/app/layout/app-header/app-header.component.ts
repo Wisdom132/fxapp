@@ -8,10 +8,15 @@ import { BlogService } from 'src/app/services/blog/blog.service';
 	styleUrls: [ './app-header.component.css' ]
 })
 export class AppHeaderComponent implements OnInit {
+	token;
 	categories: any;
 	constructor(private Blog: BlogService, private router: Router) {}
 
+	getToken() {
+		this.token = localStorage.getItem('access_token');
+	}
 	ngOnInit() {
+		this.getToken();
 		this.Blog.getCategories().subscribe((data: any) => {
 			this.categories = data.data;
 			console.log(this.categories);
@@ -20,6 +25,7 @@ export class AppHeaderComponent implements OnInit {
 
 	logout() {
 		localStorage.removeItem('access_token');
+		this.token = null;
 		this.router.navigate([ '' ]);
 	}
 }

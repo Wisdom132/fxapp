@@ -28,9 +28,9 @@ const routes: Routes = [
 		component: SiteLayoutComponent,
 		children: [
 			{ path: '', component: HomeComponent },
-			{ path: 'list-draft', component: ListDraftComponent },
+			{ path: 'list-draft', canActivate: [ AuthGuard ], component: ListDraftComponent },
 
-			{ path: 'draft-post', component: DraftpostComponent },
+			{ path: 'draft-post', canActivate: [ AuthGuard ], component: DraftpostComponent },
 
 			{ path: 'blog/:id', component: BlogComponent } //canActivate: [AuthGuard] //add authentication
 		]

@@ -25,9 +25,24 @@
               </div>
             </div>
           </li>
-          <li class="nav-item">
-            <a class="btn btn-primary btn-sm" routerLink='auth'>Get Started</a>
+          <li class="nav-item" *ngIf="!token;else showLogout">
+            <a class="btn btn-primary" routerLink='auth'>Get Started</a>
           </li>
+          <ng-template #showLogout>
+
+            <li class="nav-item">
+              <a class="nav-link" routerLink='draft-post'>Draft</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-primary text-light" (click)="logout()">Logout</a>
+            </li>
+
+
+          </ng-template>
+
+
+
+
 
         </ul>
       </div>

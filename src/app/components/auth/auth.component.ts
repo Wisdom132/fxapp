@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import Swal from 'sweetalert2';
+import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { error } from 'util';
 
 @Component({
 	selector: 'app-auth',
@@ -14,6 +14,17 @@ export class AuthComponent implements OnInit {
 	constructor(private Auth: AuthService, private router: Router) {}
 	createLoading: Boolean = false;
 	loading: Boolean = false;
+	loginForm = new FormGroup({
+		username: new FormControl(''),
+		password: new FormControl('')
+	});
+	signupForm = new FormGroup({
+		name: new FormControl(''),
+		email: new FormControl(''),
+		phone: new FormControl(''),
+		username: new FormControl(''),
+		password: new FormControl('')
+	});
 	ngOnInit() {
 		const signUpButton = document.getElementById('signUp');
 		const signInButton = document.getElementById('signIn');
@@ -29,13 +40,9 @@ export class AuthComponent implements OnInit {
 	}
 
 	// log userin
-	loginUser(event) {
+	loginUser() {
 		this.loading = true;
-		event.preventDefault();
-		const target = event.target;
-		let username = target.querySelector('#username').value;
-		let password = target.querySelector('#password').value;
-		this.Auth.userSignin(username, password).subscribe(
+		this.Auth.userSignin(this.loginForm.value).subscribe(
 			(data: any) => {
 				this.loading = false;
 				Swal.fire({
@@ -47,7 +54,6 @@ export class AuthComponent implements OnInit {
 				localStorage.setItem('access_token', data.token);
 				localStorage.setItem('user', JSON.stringify(data.user));
 				this.router.navigate([ '/list-draft' ]);
-				console.log(data);
 			},
 			(err: HttpErrorResponse) => {
 				this.loading = false;
@@ -66,43 +72,29 @@ export class AuthComponent implements OnInit {
 						confirmButtonText: 'Ok'
 					});
 				}
-
-				console.log(err.error);
 			}
 		);
 	}
 
 	//register new user
-	registerUser(event) {
+	registerUser() {
 		this.createLoading = true;
-		event.preventDefault();
-		const target = event.target;
-		let createEmail = target.querySelector('#createemail').value;
-		let username = target.querySelector('#createusername').value;
-		let name = target.querySelector('#createname').value;
-		let form = target.querySelector('#signup');
-
-		let phone = target.querySelector('#createphone').value;
-		let createpassword = target.querySelector('#createpassword').value;
-
-		this.Auth.registerNewUser(name, createEmail, username, createpassword, phone).subscribe(
+		this.Auth.registerNewUser(this.signupForm.value).subscribe(
 			(data: any) => {
 				this.createLoading = false;
-				form.reset();
 				Swal.fire({
 					title: 'Success',
-					text: data,
+					text: data.msg,
 					icon: 'success',
 					confirmButtonText: 'Ok'
 				});
 			},
 			(err: HttpErrorResponse) => {
 				this.createLoading = false;
-				let code = JSON.parse(err.error);
-				if (code.msg) {
+				if (err.error.msg) {
 					Swal.fire({
 						title: 'Error!',
-						text: code.msg,
+						text: err.error.msg,
 						icon: 'error',
 						confirmButtonText: 'Ok'
 					});

@@ -10,30 +10,17 @@ interface myData {
 	providedIn: 'root'
 })
 export class AuthService {
-	readonly rootURL: string = 'https://manny-fxapp.herokuapp.com';
-	// readonly rootURL: string = 'http://localhost:5000';
+	// readonly rootURL: string = 'https://manny-fxapp.herokuapp.com';
+	readonly rootURL: string = 'http://localhost:5000';
 
 	constructor(private http: HttpClient) {}
 
-	userSignin(username, password) {
-		return this.http.post<myData>(`${this.rootURL}/api/users/login`, {
-			username,
-			password
-		});
+	userSignin(data) {
+		return this.http.post(`${this.rootURL}/api/users/login`, data);
 	}
 
-	registerNewUser(name, email, username, password, phone) {
-		return this.http.post(
-			`${this.rootURL}/api/users/register`,
-			{
-				name,
-				email,
-				username,
-				password,
-				phone
-			},
-			{ responseType: 'text' as 'json' }
-		);
+	registerNewUser(data) {
+		return this.http.post(`${this.rootURL}/api/users/register`, data);
 	}
 
 	resendConfirmation(email) {

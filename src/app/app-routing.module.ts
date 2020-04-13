@@ -7,6 +7,7 @@ import { ResendComponent } from './components/resend/resend.component';
 import { DraftpostComponent } from './components/draftpost/draftpost.component';
 import { ListDraftComponent } from './components/list-draft/list-draft.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { PreviewComponent } from './components/preview/preview.component';
 
 //bring in the layouts
 import { SiteLayoutComponent } from './layout/site-layout/site-layout.component';
@@ -31,6 +32,8 @@ const routes: Routes = [
 			{ path: 'list-draft', canActivate: [ AuthGuard ], component: ListDraftComponent },
 
 			{ path: 'draft-post', canActivate: [ AuthGuard ], component: DraftpostComponent },
+
+			{ path: 'draft/:id', canActivate: [ AuthGuard ], component: PreviewComponent },
 
 			{ path: 'blog/:id', component: BlogComponent } //canActivate: [AuthGuard] //add authentication
 		]

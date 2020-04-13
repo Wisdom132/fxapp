@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DraftService } from '../../services/draft/draft.service';
-import { HttpErrorResponse } from '@angular/common/http';
 import { SharedService } from '../../shared/shared.service';
 import { Router } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
+
 import Swal from 'sweetalert2';
 
 @Component({
@@ -12,6 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class ListDraftComponent implements OnInit {
 	user: any;
+	draft: any;
 	drafts: any;
 	message: String;
 	loading: Boolean = false;

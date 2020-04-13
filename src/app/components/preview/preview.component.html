@@ -1,0 +1,21 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="text-center" *ngIf="loading; else showdata">
+          <app-loader></app-loader>
+        </div>
+
+        <ng-template #showdata>
+          <div class="card p-4 my-5">
+            <img [src]="preview.featured_image[0]" class="responsive mb-4" alt="" />
+            <h3>{{ preview.title }}</h3>
+            <small>{{ preview.dateCreated | date }}</small>
+            <p [innerHTML]="preview.content" class="para"></p>
+            <a routerLink="/list-draft">Go Back</a>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</section>

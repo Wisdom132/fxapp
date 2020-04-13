@@ -24,6 +24,7 @@ import { ResendComponent } from './components/resend/resend.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { ListDraftComponent } from './components/list-draft/list-draft.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { PreviewComponent } from './components/preview/preview.component';
 
 @NgModule({
 	declarations: [
@@ -41,7 +42,8 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 		DraftpostComponent,
 		ResendComponent,
 		ForgotPasswordComponent,
-		ListDraftComponent
+		ListDraftComponent,
+		PreviewComponent
 	],
 	imports: [
 		ReactiveFormsModule,

@@ -22,6 +22,10 @@ export class DraftService {
 		return this.http.post(`${this.rootURL}/api/draft/draft-post`, formData);
 	}
 
+	getDraftById(id) {
+		return this.http.get(`${this.rootURL}/api/draft/${id}`);
+	}
+
 	removeDraft(id) {
 		return this.http.delete(`${this.rootURL}/api/draft/${id}`);
 	}

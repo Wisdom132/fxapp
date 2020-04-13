@@ -41,11 +41,20 @@ export class ListDraftComponent implements OnInit {
 		let rawData = localStorage.getItem('user');
 		this.user = JSON.parse(rawData);
 	}
-
-	// editDraft() {
-
-	// 	this.router.navigate([ '/draft-post' ]);
-	// }
+	logSomething(e, d) {
+		this.loading = true;
+		this.Draft.editDraft(d._id, { isCompleted: e.target.value }).subscribe((data: any) => {
+			this.loading = false;
+			this.getUsersDraft();
+			Swal.fire({
+				title: 'Success',
+				text: 'Draft Updated',
+				icon: 'info'
+			});
+		});
+		console.log(e.target.value);
+		console.log(d);
+	}
 	newMessage(data) {
 		this.sharedService.nextMessage(JSON.stringify(data));
 		this.router.navigate([ '/draft-post' ]);

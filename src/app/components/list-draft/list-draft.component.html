@@ -33,7 +33,9 @@
               <th scope="col">Category</th>
               <th scope="col">Tags</th>
               <th scope="col">Status</th>
+
               <th scope="col">Admin Status</th>
+              <th scope="col">Update Status</th>
               <th scope="col">Actions</th>
             </tr>
           </thead>
@@ -43,8 +45,13 @@
               <td>{{draft.title}}</td>
               <td>{{draft.category.title}}</td>
               <td>{{draft.tags}}</td>
-              <td><span class="badge badge-primary p-2" *ngIf="!draft.isCompleted">In Progress</span></td>
-              <td><span class="badge badge-warning p-2" *ngIf="!draft.isPublished">Not Published</span></td>
+              <td><span class="badge badge-primary p-2">{{draft.isCompleted?"completed":"In Progress"}}</span></td>
+              <td><span class="badge badge-warning p-2">{{draft.isPublished?"Published":"Not Published"}}</span></td>
+              <td><select (change)="logSomething($event,draft)" class="form-control">
+                  <option selected disabled>Update Status</option>
+                  <option value="true">Completed</option>
+                  <option value="false">In Progress</option>
+                </select></td>
               <td>
                 <button class="btn btn-info" (click)="newMessage(draft)">Edit</button>
                 <button class="btn btn-primary mx-2">Preview</button>

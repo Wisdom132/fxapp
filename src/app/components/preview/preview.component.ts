@@ -9,7 +9,7 @@ import { DraftService } from '../../services/draft/draft.service';
 })
 export class PreviewComponent implements OnInit {
 	constructor(private router: Router, private route: ActivatedRoute, private Draft: DraftService) {}
-	preview: Object;
+	preview = null;
 	loading: Boolean = false;
 	getDraftById(id) {
 		this.loading = true;

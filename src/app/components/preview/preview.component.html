@@ -7,7 +7,7 @@
         </div>
 
         <ng-template #showdata>
-          <div class="card p-4 my-5">
+          <div class="card p-4 my-5" *ngIf="preview">
             <img [src]="preview.featured_image[0]" class="responsive mb-4" alt="" />
             <h3>{{ preview.title }}</h3>
             <small>{{ preview.dateCreated | date }}</small>

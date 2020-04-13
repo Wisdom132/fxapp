@@ -54,7 +54,7 @@
                 </select></td>
               <td>
                 <button class="btn btn-info" (click)="newMessage(draft)">Edit</button>
-                <button [routerLink]="['/draft', draft._id]" class="btn btn-primary mx-2">Preview</button>
+                <a [routerLink]="['/draft', draft._id]" class="btn btn-primary mx-2">Preview</a>
                 <button (click)="removeDraft(draft._id)" class="btn btn-danger">Delete</button>
               </td>
             </tr>

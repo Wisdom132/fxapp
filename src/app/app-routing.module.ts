@@ -34,7 +34,6 @@ const routes: Routes = [
 			{ path: 'draft-post', canActivate: [ AuthGuard ], component: DraftpostComponent },
 
 			{ path: 'draft/:id', canActivate: [ AuthGuard ], component: PreviewComponent },
-
 			{ path: 'blog/:id', component: BlogComponent } //canActivate: [AuthGuard] //add authentication
 		]
 	}
